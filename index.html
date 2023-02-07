@@ -3,12 +3,12 @@
   <head>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
-    <!-- <link
+    <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
-    /> -->
+    />
     <title>Weather App</title>
     <meta charset="UTF-8" />
   </head>
@@ -25,11 +25,12 @@
     </div> -->
 
     <div class="container">
-      <div class="weather-app">
+      <div class="weather-app" id="app-container">
         <form class="search-form" id="search-form">
           <div class="row">
             <div class="col-9">
               <input
+               
                 type="search"
                 placeholder="Type a city.."
                 autofocus="on"
@@ -52,9 +53,10 @@
             </div>
           </div>
         </form>
-        <h3 id="city">Sydney NSW, Australia</h3>
+        <h3 id="city" class="precipitation">Amsterdam</h3>
+        <h3 class="time" id="currentTime">Last updated: 12:00 PM</h3>
         <ul>
-          <li>Last updated: <span id="date"></span></li>
+          <li> <span id="date"></span></li>
           <li id="description">Partly Cloudy</li>
         </ul>
 
@@ -66,6 +68,7 @@
                 id="imageid"
                 src=""
                 alt="Clear"
+                width="120"
                 class="weather-icon float-left"
               />
               <div class="float-left">
@@ -84,11 +87,25 @@
               <li>Wind: <span id="wind"></span> m/h</li>
             </ul>
           </div>
+    
       </div>
+      <div class="weatherForecast" id="forecast" >
+        <div class="row">
+         <div class="col-2">
+          <div class="forecast-Date"> Fri
+           <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" width="50px">
+           </div>
+          <span class="forecast-temperature"><span class="forecast-temperature-max">24°</span><span class="forecast-temperature-min">|10°</span></span>
 
+         </div> 
+
+       </div>
+
+     </div>
         </div>
-        <div class="weather-forecast" id="forecast"></div>
+      
       </div>
+  
       <p style="display: block; text-align: center">
         <small>
           <a href="https://github.com/" target="_blank">Open-source code</a>
