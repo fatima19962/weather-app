@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    /> -->
+    <title>Weather App</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <!-- <div class="current">
+      <div class="col-sm-9">
+        <div id="app"></div>
+        <h1>🗺 Geolocation API</h1>
+        <h2>JavaScript Open Weather API</h2>
+
+        <button id="current-location-button">Current Location</button>
+      </div>
+    </div> -->
+
+    <div class="container">
+      <div class="weather-app">
+        <form class="search-form" id="search-form">
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="search"
+                placeholder="Type a city.."
+                autofocus="on"
+                autocomplete="off"
+                id="city-input"
+                class="form-control shadow-sm"
+              />
+            </div>
+
+            <div class="inline">
+              <button id="current-location-button">Current</button>
+            </div>
+
+            <div class="inline">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary shadow-sm"
+              />
+            </div>
+          </div>
+        </form>
+        <h3 id="city">Sydney NSW, Australia</h3>
+        <ul>
+          <li>Last updated: <span id="date"></span></li>
+          <li id="description">Partly Cloudy</li>
+        </ul>
+
+
+        <div class="row">
+          <div class="col-6">
+            <div class="clearfix">
+              <img
+                id="imageid"
+                src=""
+                alt="Clear"
+                class="weather-icon float-left"
+              />
+              <div class="float-left">
+                <span class="temperature" id="temperature">19</span>
+                <span class="units">
+                  <a href="#" id="celsius-link">°C</a> |
+                  <a href="#" id="fahrenheit-link">°F</a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="col-6">
+            <ul>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> m/h</li>
+            </ul>
+          </div>
+      </div>
+
+        </div>
+        <div class="weather-forecast" id="forecast"></div>
+      </div>
+      <p style="display: block; text-align: center">
+        <small>
+          <a href="https://github.com/" target="_blank">Open-source code</a>
+          by fatima
+        </small>
+      </p>
+    </div>
+  </body>
+  <script type="module" src="/src/index.js"></script>
+</html>
