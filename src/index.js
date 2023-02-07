@@ -13,8 +13,14 @@ function handleSubmit(event) {
 }
 function displayWeatherCondition(response) {
   let descriptionElement = document.querySelector("#description");
-  let windElement = document.querySelector("#wind");
+  // let degree = document.querySelector(".temperature");
+  // let celcius = Math.round(response.data.main.temp);
+  // degree.innerHTML = celcius;
   let cityElement = document.querySelector("#city");
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = response.data.main.humidity;
+  let windElement = document.querySelector("#wind");
+  // wind.innerHTML = Math.round(response.data.wind.speed);
   cityElement.innerHTML = response.data.name;
   // cityElement.innerHTML = `${response.data.name}`;
   // cityElement.innerHTML = searchCity;
@@ -55,10 +61,11 @@ function searchLocation(position) {
   axios.get(apiUrl).then(showtemp);
 }
 function showtemp(response) {
-  let temp = Math.round(response.data.main.temp);
+  let celcius = Math.round(response.data.main.temp);
   let nameofcity = response.data.name;
   let degree = document.querySelector(".temperature");
-  degree.innerHTML = temp;
+  // degree.innerHTML = temp;
+  degree.innerHTML = celcius;
   let cityShow = document.querySelector("#city");
   cityShow.innerHTML = nameofcity;
 }
@@ -164,8 +171,8 @@ function displayCelsius(event) {
 }
 
 let celcius = null;
-// let fahrenheitLink = document.querySelector("#fahrenheit");
-// fahrenheitLink.addEventListener("click", displayFahrenheit);
-// let celsiusLink = document.querySelector("#celcius");
-// celsiusLink.addEventListener("click", displayCelsius);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
 searchCity("Amsterdam");
