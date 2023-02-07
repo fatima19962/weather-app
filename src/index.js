@@ -16,7 +16,10 @@ function displayWeatherCondition(response) {
   let windElement = document.querySelector("#wind");
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
-  let cityInput = document.querySelector("#city-input");
+  // cityElement.innerHTML = `${response.data.name}`;
+  // cityElement.innerHTML = searchCity;
+  // cityElement.innerHTML = searchLocation;
+  // let cityInput = document.querySelector("#city-input");
   let iconElement = document.querySelector("#imageid");
 
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -30,7 +33,7 @@ function displayWeatherCondition(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
 
-  cityElement.innerHTML = cityInput.value;
+  // cityElement.innerHTML = cityInput.value;
 
   iconElement.setAttribute(
     "src",
@@ -47,9 +50,18 @@ function searchLocation(position) {
   let apiKey = "34ae1065362d42545661451bda2b8a1f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   // let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${response.coordinates.latitude}&lon=${response.coordinates.longitude}&key=2dd376b7c0fd3b8dd3740tf2o9dd2af4&units=metric`;
-  axios.get(apiUrl).then(displayWeatherCondition);
-}
 
+  // axios.get(apiUrl).then(displayWeatherCondition);
+  axios.get(apiUrl).then(showtemp);
+}
+function showtemp(response) {
+  let temp = Math.round(response.data.main.temp);
+  let nameofcity = response.data.name;
+  let degree = document.querySelector(".temperature");
+  degree.innerHTML = temp;
+  let cityShow = document.querySelector("#city");
+  cityShow.innerHTML = nameofcity;
+}
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
@@ -58,7 +70,6 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-searchCity("Amsterdam");
 
 function formatDate(date) {
   let days = [
@@ -153,7 +164,8 @@ function displayCelsius(event) {
 }
 
 let celcius = null;
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", displayFahrenheit);
-let celsiusLink = document.querySelector("#celcius");
-celsiusLink.addEventListener("click", displayCelsius);
+// let fahrenheitLink = document.querySelector("#fahrenheit");
+// fahrenheitLink.addEventListener("click", displayFahrenheit);
+// let celsiusLink = document.querySelector("#celcius");
+// celsiusLink.addEventListener("click", displayCelsius);
+searchCity("Amsterdam");
